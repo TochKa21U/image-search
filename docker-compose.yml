@@ -27,6 +27,31 @@ services:
     image: semitechnologies/img2vec-pytorch:resnet50
     environment:
       ENABLE_CUDA: '0'
+  imagesearch-api:
+    build:
+      context: ./
+    container_name: imagesearch
+    depends_on:
+      - postgres_db
+      - mongo_db
+    env_file:
+      - .env
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - 8080:8080
+      - 5678:5678
+    volumes:
+      - ./:/app
+    command:
+      - uvicorn
+      - imagesearch.main:app
+      - --host
+      - "0.0.0.0"
+      - --port
+      - "8080"
+      - --reload # take away in prod
+    restart: unless-stopped
 volumes:
   weaviate_data:
 ...

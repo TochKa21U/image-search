@@ -68,9 +68,6 @@ async def get_image(image_id: str):
 def entry_point():
     return JSONResponse(content={"Version":"0.0.1","status":"development"})
 
-# WILL DO UPLOAD PICTURE
-# FIND SIMILARITY
 # NEED TO WRAP IT WITH GRADIO OR SOMETHING SIMILAR OR DEMO PURPOSES
-# ALSO DOCKERFILE NEEDS TO BE ADDED
 # WILL ALSO ADD POSTMAN FILE FOR API ENDPOINTS
 # MAYBE EVEN THE SWAGGER API AS WELL
