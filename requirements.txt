@@ -1,0 +1,2 @@
+fastapi==0.92.0
+weaviate-client==3.23.2
