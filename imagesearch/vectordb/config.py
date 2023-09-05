@@ -84,7 +84,6 @@ def search_similar_to_uuid(uuid_value):
         properties=["image", "text"],
     ).with_near_object({
         "id": uuid_value
-    }).with_limit(2).with_additional(["distance"]).do()
+    }).with_limit(2).with_additional(["id","distance"]).do()
     # First item is itself, second item is closest one
-    closest_result = results['data']['Get'][f"{CLASSNAME}"][-1]
-    return closest_result # Only return closest item
+    return results # Only return closest item
