@@ -9,4 +9,4 @@ load_dotenv() # Load dot env variables
 PORT = 8888
 
 if __name__ == '__main__':
-    uvicorn.run("imagesearch.main:app",port=PORT,log_level="info") 
+    uvicorn.run("imagesearch.main:app",port=PORT,log_level="info",reload=True) 
