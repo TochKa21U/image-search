@@ -19,3 +19,8 @@ All this application will be also wrapped in Gradio as well for frontend display
 
 ## Other
 This application might be hosted on HuggingFace Spaces as well for quick showcase demo
+Example dataset might be linked somewhere in here in readme file
+Explanation or Quick start part will be written
+
+## Documentation
+Please visit /docs the see Swagger documentation
