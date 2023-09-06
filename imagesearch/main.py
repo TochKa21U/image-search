@@ -4,6 +4,7 @@ from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from imagesearch.vectordb.config import delete_object_by_uuid, search_similar_to_uuid, add_pictures_to_db, delete_object_by_uuid, binary_data, CLASSNAME
 from io import BytesIO
+import threading
 
 app = FastAPI(title="Image Similarty Search",description="Image search with Vector Database, using ResNet50 for Vector embeddings generation",version="0.1.0")
 
@@ -15,6 +16,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # The Upload endpoint
 @app.post("/upload/")
@@ -68,7 +70,5 @@ async def get_image(image_id: str):
 def entry_point():
     return JSONResponse(content={"Version":"0.1.0","status":"development","docs/swagger":"/docs"})
 
-# NEED TO WRAP IT WITH GRADIO OR SOMETHING SIMILAR OR DEMO PURPOSES
-# WILL ALSO ADD POSTMAN FILE FOR API ENDPOINTS
+# GRADIO WILL BE HOSTED ON DIFFERENT CONTAINER
 # will also add detailed description about how to run and architecture
-# WILL not host it on gradio

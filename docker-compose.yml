@@ -38,6 +38,7 @@ services:
       - VECTORDBADDR=weaviate
     ports:
       - 8888:8888
+      - 7860:7860 # Gradio front end
       - 5678:5678 # Debugging purposes only
     volumes:
       - ./:/app
