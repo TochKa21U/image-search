@@ -8,7 +8,7 @@ User input will be PNG or JPG/JPEG images.
 
 ## Stack
 
-API will be served on FastAPI by default on 8080 port
+API will be served on FastAPI by default on 8888 port
 Weaviate Vector DB will be used for storing vector embeddings
 PyTorch based model will be responsible for Vector Embeddings(Resnet50) / VIT
 Both Outcome will be tested and fastest and acceptable enough will be deployed

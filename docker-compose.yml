@@ -32,14 +32,12 @@ services:
       context: ./
     container_name: imagesearch
     depends_on:
-      - postgres_db
-      - mongo_db
-    env_file:
-      - .env
+      - weaviate
     environment:
       - PYTHONUNBUFFERED=1
+      - VECTORDBADDR=weaviate
     ports:
-      - 8080:8080
+      - 8888:8888
       - 5678:5678
     volumes:
       - ./:/app
@@ -49,7 +47,7 @@ services:
       - --host
       - "0.0.0.0"
       - --port
-      - "8080"
+      - "8888"
       - --reload # take away in prod
     restart: unless-stopped
 volumes:

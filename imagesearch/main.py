@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from imagesearch.vectordb.config import delete_object_by_uuid, search_similar_to_uuid, add_pictures_to_db, delete_object_by_uuid, binary_data, CLASSNAME
 from io import BytesIO
 
-app = FastAPI()
+app = FastAPI(title="Image Similarty Search",description="Image search with Vector Database, using ResNet50 for Vector embeddings generation",version="0.1.0")
 
 # To handle CORS
 app.add_middleware(
@@ -66,8 +66,9 @@ async def get_image(image_id: str):
 
 @app.get("/")
 def entry_point():
-    return JSONResponse(content={"Version":"0.0.1","status":"development"})
+    return JSONResponse(content={"Version":"0.1.0","status":"development","docs/swagger":"/docs"})
 
 # NEED TO WRAP IT WITH GRADIO OR SOMETHING SIMILAR OR DEMO PURPOSES
 # WILL ALSO ADD POSTMAN FILE FOR API ENDPOINTS
-# MAYBE EVEN THE SWAGGER API AS WELL
+# will also add detailed description about how to run and architecture
+# WILL not host it on gradio

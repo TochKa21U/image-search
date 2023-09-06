@@ -2,8 +2,11 @@
 import weaviate
 import base64
 from weaviate.util import generate_uuid5
+from os import environ
 
-client_db = weaviate.Client("http://localhost:8080")
+WEAVIATEADDR=environ["VECTORDBADDR"]
+print(f"Weaviate Address : {WEAVIATEADDR}")
+client_db = weaviate.Client(f"http://{WEAVIATEADDR}:8080")
 
 # Test connection
 client_db.schema.get()
