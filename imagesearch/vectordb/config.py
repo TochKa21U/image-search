@@ -2,9 +2,9 @@
 import weaviate
 import base64
 from weaviate.util import generate_uuid5
-from os import environ
+from os import environ,getenv
 
-WEAVIATEADDR=environ["VECTORDBADDR"]
+WEAVIATEADDR=getenv("VECTORDBADDR","weaviate")
 print(f"Weaviate Address : {WEAVIATEADDR}")
 client_db = weaviate.Client(f"http://{WEAVIATEADDR}:8080")
 
